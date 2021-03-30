@@ -1,0 +1,7 @@
+{
+  "name": "appTarea",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
