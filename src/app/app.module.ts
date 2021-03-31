@@ -6,11 +6,10 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AngularFireModule } from 'angularfire2';
-import { firebaseConfig } from 'src/environments/environment';
-import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
-// import { AngularFireAuthModule } from '@angular/fire/auth'
-import { TareasService } from './services/tareas.service';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,14 +18,11 @@ import { TareasService } from './services/tareas.service';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    // AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
-  providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    TareasService,
-    AngularFireDatabase,
-  ],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

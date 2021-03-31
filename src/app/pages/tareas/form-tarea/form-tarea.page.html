@@ -1,0 +1,38 @@
+<ion-content class="ion-no-padding">
+  <ion-toolbar>
+    <!-- <ion-buttons collapse="true" slot="end">
+      <ion-button>Salir</ion-button>
+    </ion-buttons> -->
+    <ion-title size="large">{{titulo}}</ion-title>
+  </ion-toolbar>
+
+  <form [formGroup]="formTarea" (ngSubmit)="onClickGuardar()" novalidate>
+    <div class="ion-padding">
+      <ion-item>
+        <ion-label position="stacked">Nombre:</ion-label>
+        <ion-input type="text" formControlName="nombre"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Fecha</ion-label>
+        <!-- <ion-input type="text" placeholder="Descripción" formControlName="descripcion"></ion-input> -->
+        <ion-datetime formControlName="fecha" displayFormat="DD-MM-YYYY HH:mm" ></ion-datetime>
+      </ion-item>
+        
+    </div>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" type="submit"
+            [disabled]="formTarea.invalid"
+            class="ion-no-margin">Guardar</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button expand="block" type="button"  class="ion-no-margin" (click)="onClickCancelar()">Cancelar</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</form>
+
+</ion-content>

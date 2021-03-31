@@ -4,22 +4,21 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-// import { Facebook } from '@ionic-native/facebook/ngx';
+import { TareasPageRoutingModule } from './tareas-routing.module';
 
-import { LoginPageRoutingModule } from './login-routing.module';
-
-import { LoginPage } from './login.page';
+import { TareasPage } from './tareas.page';
+import { TareasService } from '../../services/tareas/tareas.service';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LoginPageRoutingModule
+    TareasPageRoutingModule
   ],
-  declarations: [LoginPage],
+  declarations: [TareasPage],
   providers: [
-    // Facebook
+    TareasService
   ]
 })
-export class LoginPageModule {}
+export class TareasPageModule {}

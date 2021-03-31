@@ -1,26 +1,9 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
       Gestor de tareas
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div padding *ngIf="show">
-      <ion-item>
-        <ion-label floating>Nombre</ion-label>
-        <ion-input type="text" [(ngModel)]="tarea.name"></ion-input>
-      </ion-item>
-      <button (click)="saveTarea()" ion-button full>Guardar</button>
-      <button *ngIf="idSelected != 0" (click)="removeSelectedTarea()" ion-button full color="danger">Borrar</button>
-  </div>
-    <ion-list>
-      <button ion-item *ngFor="let tarea of tareas" (click)="selectTarea(tarea.id)">
-        Nombre: {{ tarea.name }}
-      </button>  
-    </ion-list>
-  <ion-fab bottom right>
-      <button (click)="show = !show" ion-fab mini><ion-icon name="add"></ion-icon></button>
-    </ion-fab>
-</ion-content>
+<ion-router-outlet id="main"></ion-router-outlet>

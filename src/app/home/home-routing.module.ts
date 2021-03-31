@@ -6,6 +6,17 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage,
+    children: [
+      {
+        path: '',
+        redirectTo: 'tareas',
+        pathMatch: 'full'
+      },
+      {
+        path: 'tareas',
+        loadChildren: () => import('../pages/tareas/tareas.module').then( m => m.TareasPageModule)
+      }
+    ]
   }
 ];
 

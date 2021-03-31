@@ -1,0 +1,19 @@
+
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let item of lstTareas" button>
+      <ion-label>
+        <h2>{{item.nombre}}</h2>
+        <h3>{{item.fecha | date: 'medium'}}</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="onClickAdd()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

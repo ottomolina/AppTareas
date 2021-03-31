@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { TareasService } from '../services/tareas.service';
+import { TareasService } from '../services/tareas/tareas.service';
 
 @Component({
   selector: 'app-home',
