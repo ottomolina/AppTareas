@@ -1,6 +1,8 @@
+import { Facebook } from '@ionic-native/facebook/ngx';
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
-import { TareasService } from '../services/tareas/tareas.service';
+import { AuthorizeService } from '../services/authorize/authorize.service';
+import { Router } from '@angular/router';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -8,51 +10,24 @@ import { TareasService } from '../services/tareas/tareas.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  idSelected: any;
-  show: boolean;
-  tareas = [];
-  tarea = { id: 0, name: null, user: 1 };
 
-  constructor(public navCtrl: NavController,
-              public tareaService: TareasService
-  ) {
-    this.show = false;
-    this.idSelected = 0;
+  constructor(public router: Router,
+              public fb: Facebook,
+              public auth: AuthorizeService,
+              private platform: Platform
+  ) { }
 
-    tareaService.getTareas().subscribe(tareas => {
-      this.tareas = tareas;
-    });
-  }
-
-  saveTarea(){
-    if (this.idSelected !== 0){
-      this.tareaService.updateTarea(this.tarea);
-    }else{
-      this.tareaService.saveTarea(this.tarea);
+  logout() {
+    if (this.platform.is('capacitor')) {
+      this.fb.logout().then(resp => {
+        console.log('logout', resp);
+        this.auth.closeSession();
+        this.router.navigate(['/login']);
+      });
+    } else {
+      this.auth.closeSession();
+      this.router.navigate(['/login']);
     }
-    this.clear();
-  }
-  selectTarea(id){
-    this.show = true;
-    this.idSelected = id;
-
-    let receivedTarea: any;
-
-    this.tareaService.getTarea(id).subscribe(tarea => {
-      receivedTarea = tarea;
-      this.tarea = receivedTarea;
-    });
-  }
-  removeSelectedTarea(){
-    this.tareaService.removeTarea(this.idSelected);
-    this.clear();
-  }
-
-  clear(){
-    this.show = false;
-    this.idSelected = 0;
-    this.tarea.name = null;
-    this.tarea.id = null;
   }
 
 }

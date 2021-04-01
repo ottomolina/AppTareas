@@ -30,3 +30,10 @@ export class TareasService {
     this.atDB.database.ref(`tareas/${id}`).remove();
   }
 }
+
+export interface Tareas {
+  id: string;
+  nombre: string;
+  fecha: Date;
+  usuario: string;
+}

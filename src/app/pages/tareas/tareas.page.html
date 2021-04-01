@@ -2,7 +2,7 @@
 <ion-content>
 
   <ion-list>
-    <ion-item *ngFor="let item of lstTareas" button>
+    <ion-item *ngFor="let item of lstTareas" button  (click)="clickTarea(item)">
       <ion-label>
         <h2>{{item.nombre}}</h2>
         <h3>{{item.fecha | date: 'medium'}}</h3>

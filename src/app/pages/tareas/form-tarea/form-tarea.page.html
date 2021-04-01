@@ -32,6 +32,13 @@
           <ion-button expand="block" type="button"  class="ion-no-margin" (click)="onClickCancelar()">Cancelar</ion-button>
         </ion-col>
       </ion-row>
+      <ion-row *ngIf="data" >
+        <ion-col col-2></ion-col>
+        <ion-col col-8>
+          <ion-button expand="block" type="button" class="ion-no-margin" (click)="onClickEliminar()" >Eliminar</ion-button>
+        </ion-col>
+        <ion-col col-2></ion-col>
+      </ion-row>
     </ion-grid>
 </form>
 

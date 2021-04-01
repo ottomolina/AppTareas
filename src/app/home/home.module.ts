@@ -1,3 +1,4 @@
+import { Facebook } from '@ionic-native/facebook/ngx';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
@@ -6,6 +7,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { TareasService } from '../services/tareas/tareas.service';
+import { AuthorizeService } from '../services/authorize/authorize.service';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { TareasService } from '../services/tareas/tareas.service';
   ],
   declarations: [HomePage],
   providers: [
-    TareasService
+    TareasService,
+    Facebook,
+    AuthorizeService
   ]
 })
 export class HomePageModule {}

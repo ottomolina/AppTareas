@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-// import { Facebook } from '@ionic-native/facebook/ngx';
+import { Facebook } from '@ionic-native/facebook/ngx';
 
 import { LoginPageRoutingModule } from './login-routing.module';
 
@@ -19,7 +19,7 @@ import { LoginPage } from './login.page';
   ],
   declarations: [LoginPage],
   providers: [
-    // Facebook
+    Facebook
   ]
 })
 export class LoginPageModule {}
